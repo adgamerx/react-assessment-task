@@ -4,7 +4,7 @@ const Resizable = () => {
     return ( 
 <div>
     <Split direction="vertical" style={{height: '100vh'}}>
-        <Split className='flex'>
+        <Split className='flex' sizes={[20,80]}>
             <div className="bg-gray-300 text-center flex justify-center items-center">Window 1</div>
             <div className="bg-gray-300 text-center flex justify-center items-center">Window 2</div>
         </Split>
