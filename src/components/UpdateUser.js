@@ -6,6 +6,12 @@ const UpdateUser = () => {
     email: "",
   });
 
+  const [counter, setCounter] = useState(0)
+
+  const addCount = () => {
+    setCounter(counter + 1)
+  }
+
   var [id, setID] = useState("");
 
   async function onFormSubmit(e) {
@@ -16,6 +22,7 @@ const UpdateUser = () => {
         { email: user.email}
       );
       console.log("email updated");
+      addCount();
     } catch (e) {
       console.log("got an error");
     }
@@ -27,9 +34,6 @@ const UpdateUser = () => {
   }
 
   function onIdChange(e) {
-    setID(e.target.value);
-  }
-  function onEmailChange(e) {
     setID(e.target.value);
   }
 
@@ -56,6 +60,9 @@ const UpdateUser = () => {
       >
         Update
       </button>
+      <div>
+        Update User Clicked: {counter} times <br />(only updates on successfull Updation)
+      </div>
     </div>
   );
 };

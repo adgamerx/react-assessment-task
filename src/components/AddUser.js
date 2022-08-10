@@ -6,6 +6,12 @@ const AddUser = () => {
     email: "",
   });
 
+  const [counter, setCounter] = useState(0)
+
+  const addCount = () => {
+    setCounter(counter + 1)
+  }
+
   function onTextFieldChange(e) {
     setUser({
       ...user,
@@ -18,6 +24,7 @@ const AddUser = () => {
     try {
       await axios.post("https://mongodb-react-api.herokuapp.com/users", user);
       console.log("user added");
+      addCount();
     } catch (e) {
       console.log("got an error");
     }
@@ -47,6 +54,10 @@ const AddUser = () => {
       >
         Add User
       </button>
+      <br/>
+      <div>
+        Add User Clicked: {counter} times <br />(only updates on successfull add)
+      </div>
     </div>
   );
 };
