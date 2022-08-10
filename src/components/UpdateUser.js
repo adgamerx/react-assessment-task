@@ -13,7 +13,7 @@ const UpdateUser = () => {
     try {
       await axios.patch(
         `https://mongodb-react-api.herokuapp.com/users/${id}`,
-        user.email
+        { email: user.email}
       );
       console.log("email updated");
     } catch (e) {
@@ -22,12 +22,14 @@ const UpdateUser = () => {
   }
   function onTextFieldChange(e) {
     setUser({
-      ...user,
-      [e.target.name]: e.target.value,
+      "email": e.target.value,
     });
   }
 
   function onIdChange(e) {
+    setID(e.target.value);
+  }
+  function onEmailChange(e) {
     setID(e.target.value);
   }
 
